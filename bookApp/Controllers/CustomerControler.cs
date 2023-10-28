@@ -7,11 +7,20 @@ using bookApp.Models;
 using bookApp.ViewModels;
 using bookApp.Models;
 using LibApp.Models;
+using bookApp.Data;
 
 namespace LibApp.Controllers
 {
+    
     public class CustomersController : Controller
     {
+        private ApplicationDbContext _context;
+        //DbContext will be polled through Dependency Injection
+
+        public CustomersController(ApplicationDbContext dbContext)
+        {
+            _context = dbContext;
+        }
         public ViewResult Index()
         {
             var customers = GetCustomers();
