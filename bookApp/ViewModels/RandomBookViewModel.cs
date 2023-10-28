@@ -1,4 +1,5 @@
 ﻿using bookApp.Models;
+using LibApp.Models;
 
 namespace bookApp.ViewModels
 {
