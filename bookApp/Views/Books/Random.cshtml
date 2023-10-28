@@ -3,6 +3,12 @@
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    // var book = ViewData["Book"] as Book;
+    var book = ViewBag.book as Book;
 }
+@*Use for direct model passing from the controler
+*@@*<h2>@Model.Title</h2>*@
 
-<h2>@Model.Title</h2>
+@*Use for VieData or ViewBag
+*@
+<h2>@book.Title</h2>

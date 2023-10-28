@@ -19,8 +19,12 @@ namespace bookApp.Controllers
         public IActionResult Random()
         {
             var firstBook = new Book() { Autor = "Random author", Title = "random Title" };
-            return RedirectToAction("Index", "Home", new {page = 1, sortBy = "title"});
+            // return RedirectToAction("Index", "Home", new {page = 1, sortBy = "title"});
 
+           // ViewData["Book"] = firstBook;
+           ViewBag.Book = firstBook;
+
+            return View();
         }
         public ActionResult Details(int id)
         {
