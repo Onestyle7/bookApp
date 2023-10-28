@@ -1,4 +1,5 @@
 ﻿using bookApp.Models;
+using bookApp.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,12 +20,22 @@ namespace bookApp.Controllers
         public IActionResult Random()
         {
             var firstBook = new Book() { Autor = "Random author", Title = "random Title" };
-            // return RedirectToAction("Index", "Home", new {page = 1, sortBy = "title"});
-
+            // return RedirectToAction("Random", "Books");
+            // Use for alternative ways of passing data to views
            // ViewData["Book"] = firstBook;
-           ViewBag.Book = firstBook;
+           //ViewBag.Book = firstBook;
 
-            return View();
+            var customers = new List<Customer>
+            {
+                new Customer  { Name = "Customer 1" },
+                new Customer  { Name = "Customer 2" }
+            };
+            var ViewModel = new RandomBookViewModel
+            {
+                Book = firstBook,
+                Customers = customers
+            };
+            return View(ViewModel);
         }
         public ActionResult Details(int id)
         {

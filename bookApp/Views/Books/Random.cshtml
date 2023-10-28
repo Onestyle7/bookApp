@@ -1,5 +1,6 @@
-﻿@model bookApp.Models.Book
-
+﻿@*@model bookApp.Models.Book
+*@
+@model bookApp.ViewModels.RandomBookViewModel
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,6 +10,22 @@
 @*Use for direct model passing from the controler
 *@@*<h2>@Model.Title</h2>*@
 
+@{
+    var className = Model.Customers.Count > 2 ? "popular" : null;
+}
+
 @*Use for VieData or ViewBag
 *@
-<h2>@book.Title</h2>
+<h2 class="@className">@Model.Book.Title</h2>
+
+<ul>
+    @{
+    if(Model.Customers.Count == 0){
+        <p>No one has renend this book before</p>
+    }
+    else{
+    @foreach(var customer in Model.Customers)
+    {
+        <li>@customer.Name</li>
+    }}}
+</ul>
