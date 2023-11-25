@@ -12,6 +12,7 @@ namespace bookApp.Data
         {
         }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Customer> Books { get; set; }
 
         public DbSet<MembershipType> membershipTypes { get; set; }
     }

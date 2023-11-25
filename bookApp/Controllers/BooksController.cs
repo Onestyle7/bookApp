@@ -1,4 +1,5 @@
-﻿using bookApp.Models;
+﻿using bookApp.Data;
+using bookApp.Models;
 using bookApp.ViewModels;
 using LibApp.Models;
 using Microsoft.AspNetCore.Http;
@@ -8,6 +9,10 @@ namespace bookApp.Controllers
 {
     public class BooksController : Controller
     {
+
+        public BooksController(ApplicationDbContext context) {
+            _context = context;
+        }
         // GET: BooksController
         public ActionResult Index()
         {
@@ -105,5 +110,8 @@ namespace bookApp.Controllers
                 return View();
             }
         }
+
+        private ApplicationDbContext _context;
     }
+    
 }
