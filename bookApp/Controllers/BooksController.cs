@@ -4,6 +4,7 @@ using bookApp.ViewModels;
 using LibApp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace bookApp.Controllers
 {
@@ -16,6 +17,7 @@ namespace bookApp.Controllers
         // GET: BooksController
         public ActionResult Index()
         {
+            var book = _context.Books.Include(b => b.genre).ToList();
             return View();
         }
 

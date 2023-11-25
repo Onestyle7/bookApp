@@ -1,0 +1,36 @@
+﻿@model IEnumerable<LibApp.Models.Customer>
+
+@{
+    ViewBag.Title = "Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@if (!Model.Any())
+{
+    <p>There are no customers yet.</p>
+}
+else
+{
+    <table class="table table-hover">
+        <thead>
+            <tr><th colspan="2">Books</th></tr>
+            <tr><th colspan="1">Discount Rate</th></tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => customer.Name)</td>
+                    <td>@customer.MembershipType.Name</td>
+                    @if (customer.Birthdate.HasValue)
+                    {
+                        <td>@customer.Birthdate.Value.ToShortDateString()</td>
+                    }
+                    <td><a asp-action="Details" asp-route="@customer.Id">Details</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

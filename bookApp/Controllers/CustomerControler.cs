@@ -41,7 +41,10 @@ namespace LibApp.Controllers
 
             return View(customer);
         }
-
+        public IActionResult New()
+        {
+            return View();
+        }
      
 
         

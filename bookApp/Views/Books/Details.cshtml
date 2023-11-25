@@ -1,0 +1,15 @@
+﻿@model bookApp.Models.Book
+
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+<ul>
+    <li>@Model.Autor</li>
+    <li>@Model.genre.Name</li>
+    <li>@Model.DateAdded.ToShortDateString()</li>
+    <li>@Model.Release.ToShortDateString()</li>
+    <li>@Model.NumberInStock</li>
+</ul>

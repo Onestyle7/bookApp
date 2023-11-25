@@ -3,6 +3,7 @@ using LibApp.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace bookApp.Data
 {
     public class ApplicationDbContext : IdentityDbContext
@@ -12,7 +13,7 @@ namespace bookApp.Data
         {
         }
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Customer> Books { get; set; }
+        public DbSet<Book> Books { get; set; }
 
         public DbSet<MembershipType> membershipTypes { get; set; }
     }
